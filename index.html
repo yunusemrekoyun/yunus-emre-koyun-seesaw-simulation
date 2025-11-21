@@ -10,15 +10,35 @@
   </head>
   <body>
     <div class="container">
-      <div class="info">
-        <h1>Seesaw Simulation</h1>
+      <h1>Seesaw Simulation</h1>
+      <div id="info-container">
+        <p class="info-item">
+          <span class="info-label">Left Weight</span>
+          <span class="info-value"><span id="left-weight">0</span> kg</span>
+        </p>
 
-        <div class="weight">
-          <div>Left: <span id="left-weight">0</span> kg</div>
-          <div>Right: <span id="right-weight">0</span> kg</div>
-        </div>
-        <button id="start-button">Start</button>
+        <p class="info-item">
+          <span class="info-label">Left Torque</span>
+          <span class="info-value"><span id="left-torque">0</span></span>
+        </p>
+
+        <p class="info-item">
+          <span class="info-label">Tilt Angle</span>
+          <span class="info-value"><span id="angle">0</span>°</span>
+        </p>
+
+        <p class="info-item">
+          <span class="info-label">Right Torque</span>
+          <span class="info-value"><span id="right-torque">0</span></span>
+        </p>
+
+        <p class="info-item">
+          <span class="info-label">Right Weight</span>
+          <span class="info-value"><span id="right-weight">0</span> kg</span>
+        </p>
       </div>
+
+      <button id="start-button">Start</button>
     </div>
 
     <div id="game-scene">

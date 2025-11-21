@@ -16,6 +16,8 @@ const colors = [
 ];
 const sizes = [18, 22, 26, 30, 34, 38, 42, 46, 50, 55];
 
+let currentAngle = 0;
+
 startButton.addEventListener("click", () => {
   if (!gameStarted) {
     console.log("game started");
@@ -32,9 +34,12 @@ let gameStarted = false;
 
 const leftWeightSpan = document.getElementById("left-weight");
 const rightWeightSpan = document.getElementById("right-weight");
-
 let leftWeight = 0;
 let rightWeight = 0;
+let leftTorque = 0;
+let rightTorque = 0;
+const leftTorqueSpan = document.getElementById("left-torque");
+const rightTorqueSpan = document.getElementById("right-torque");
 dropArea.addEventListener("click", (event) => {
   const x = event.offsetX;
   const y = event.offsetY;
@@ -60,12 +65,22 @@ dropArea.addEventListener("click", (event) => {
   animateFall(obj, y, size);
 
   const pivotX = dropArea.clientWidth / 2;
+  let distance = Math.abs(x - pivotX);
+  const halfWidthPx = dropArea.clientWidth / 2;
+  distance = (distance / halfWidthPx) * 2; //For normalize the px to meter
+
+  const torque = weight * distance;
   if (x < pivotX) {
     leftWeight += weight;
     leftWeightSpan.textContent = leftWeight;
+
+    leftTorque += torque;
+    leftTorqueSpan.textContent = Math.round(leftTorque);
   } else {
     rightWeight += weight;
     rightWeightSpan.textContent = rightWeight;
+    rightTorque += torque;
+    rightTorqueSpan.textContent = Math.round(rightTorque);
   }
 });
 
@@ -99,6 +114,10 @@ function resetGame() {
   leftWeightSpan.textContent = "0";
   rightWeight = 0;
   rightWeightSpan.textContent = "0";
+  leftTorque = 0;
+  rightTorque = 0;
+  leftTorqueSpan.textContent = "0";
+  rightTorqueSpan.textContent = "0";
   gameScene.style.display = "none";
   gameScene.style.pointerEvents = "none";
 
