@@ -49,7 +49,6 @@ body {
 .weight-object {
   position: absolute;
   border-radius: 40px;
-  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,7 +125,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 170px;
+  bottom: 210px;
   width: 80%;
   max-width: 700px;
   height: 16px;
@@ -136,25 +135,25 @@ body {
 }
 #triangle {
   position: absolute;
-  bottom: 20px;
+  bottom: 175px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 80px solid transparent;
-  border-right: 80px solid transparent;
-  border-bottom: 150px solid #9370db;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid #9370db;
 }
 
 #drop {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 186px;
+  bottom: 226px;
   width: 80%;
   max-width: 700px;
   height: 265px;
-  background-color: aqua;
+  background-color: rgba(0, 255, 255, 0.14);
   display: flex;
   cursor: pointer;
 }
